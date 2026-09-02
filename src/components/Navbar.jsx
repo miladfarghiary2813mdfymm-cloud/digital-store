@@ -7,7 +7,7 @@ function Navbar() {
       dir="rtl"
       className=" relative mx-6 mt-6 rounded-2xl bg-white px-6 py-4 shadow-sm"
     >
-      <div className="flex items-center justify-between">
+   <div className="flex flex-row-reverse items-center justify-between md:flex-row">
         <div>
           <h1 className="text-2xl font-bold">دیجیتال شاپ</h1>
         </div>
@@ -42,20 +42,19 @@ function Navbar() {
           <button className=" hidden md:flex rounded-xl bg-blue-600 px-5 py-2.5 text-white transition hover:bg-blue-700">
             <User />
           </button>
-
-          <button className="flex h-12 w-12 items-center justify-center rounded-xl transition hover:bg-gray-100">
-            <ShoppingCart className="-scale-x-100" />
-          </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="flex h-12 w-12 items-center justify-center rounded-xl transition hover:bg-gray-100 md:hidden"
           >
             <Menu />
           </button>
+          <button className="flex h-12 w-12 items-center justify-center rounded-xl transition hover:bg-gray-100">
+            <ShoppingCart className="-scale-x-100" />
+          </button>
         </div>
       </div>
       {isMenuOpen && (
-        <div className=" absolute left-0 top-full mt-2">
+        <div className=" absolute right-0 top-full mt-2">
           <div className="w-56 rounded-xl bg-gray-100 p-4">
             <input
               type="text"
