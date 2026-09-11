@@ -1,11 +1,13 @@
 import { ShoppingCart, Heart, Star } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   return (
-    <div className="overflow-hidden roundeنd-2xl border border-[#F3E3C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+    <div className="overflow-hidden rounded-2xl border border-[#F3E3C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
       <div className="relative flex h-52 items-center justify-center bg-[#FFF8EC] p-6">
         <Link to={`/products/${product.id}`} className="h-full w-full">
           <img
@@ -65,7 +67,10 @@ function ProductCard({ product }) {
         </div>
 
         <button
-          onClick={() => setIsAdded(!isAdded)}
+  onClick={() => {
+    addToCart(product, 1);
+    setIsAdded(true);
+  }}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
         >
           <ShoppingCart className="h-5 w-5 -scale-x-100" />

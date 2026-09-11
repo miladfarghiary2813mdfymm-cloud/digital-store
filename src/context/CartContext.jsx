@@ -43,8 +43,18 @@ function removeFromCart(productId) {
     currentItems.filter((item) => item.id !== productId)
   );
 }
+function updateQuantity(productId, newQuantity) {
+  setCartItems((currentItems) =>
+    currentItems.map((item) =>
+      item.id === productId
+        ? { ...item, quantity: Math.max(1, newQuantity) }
+        : item
+    )
+  );
+}
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart,removeFromCart}}>
+    <CartContext.Provider value={{ cartItems, addToCart,removeFromCart,updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

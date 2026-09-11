@@ -1,48 +1,13 @@
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
+import { products } from "../data/products";
+
 function FeaturedProducts() {
-  const products = [
-    {
-      id: 1,
-      name: "گوشی موبایل iPhone 14 Pro",
-      image: "6.png",
-      price: "۵۲,۹۰۰,۰۰۰",
-      oldPrice: "۵۷,۹۰۰,۰۰۰",
-      discount: "۹٪",
-      rating: "۴.۸",
-      description: "دوربین حرفه‌ای، نمایشگر باکیفیت و عملکرد قدرتمند",
-    },
-    {
-      id: 2,
-      name: "ساعت هوشمند Apple Watch",
-      image: "/8.png",
-      price: "۱۲,۹۰۰,۰۰۰",
-      oldPrice: "۱۴,۵۰۰,۰۰۰",
-      discount: "۱۱٪",
-      rating: "۴.۶",
-      description: "پایش سلامتی، تماس و اعلان‌ها با طراحی سبک و جذاب",
-    },
-    {
-      id: 3,
-      name: "هدفون بی‌سیم AirPods Pro",
-      image: "/10.png",
-      price: "۷,۹۰۰,۰۰۰",
-      oldPrice: "۹,۲۰۰,۰۰۰",
-      discount: "۱۴٪",
-      rating: "۴.۹",
-      description: "صدای شفاف، حذف نویز و مناسب برای موسیقی و مکالمه",
-    },
-    {
-      id: 4,
-      name: "لپ‌تاپ MacBook Air",
-      image: "/5.png",
-      price: "۴۵,۹۰۰,۰۰۰",
-      oldPrice: "۵۱,۰۰۰,۰۰۰",
-      discount: "۱۰٪",
-      rating: "۴.۷",
-      description: "سبک، قدرتمند و مناسب برنامه‌نویسی و استفاده روزمره",
-    },
-  ];
+  const featuredIds = [1, 21, 17, 9];
+
+  const featuredProducts = products.filter((product) =>
+    featuredIds.includes(product.id)
+  );
 
   return (
     <section dir="rtl" className="mx-6 mt-10">
@@ -66,7 +31,7 @@ function FeaturedProducts() {
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((product) => (
+        {featuredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
