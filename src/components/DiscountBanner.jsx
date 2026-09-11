@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function DiscountBanner() {
   return (
     <section dir="rtl" className="mx-6 mt-10">
@@ -16,10 +17,12 @@ function DiscountBanner() {
             فرصت محدودی برای خرید با قیمت ویژه
           </p>
         </div>
-
-        <button className="shrink-0 rounded-xl bg-[#FFC107] px-7 py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]">
-          مشاهده محصولات
-        </button>
+<Link
+  to="/products"
+  className="shrink-0 rounded-xl bg-[#FFC107] px-7 py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
+>
+  مشاهده تخفیف‌ها
+</Link>
 
       </div>
     </section>

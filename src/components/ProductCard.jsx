@@ -1,16 +1,19 @@
 import { ShoppingCart, Heart, Star } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 function ProductCard({ product }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   return (
     <div className="overflow-hidden roundeنd-2xl border border-[#F3E3C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
       <div className="relative flex h-52 items-center justify-center bg-[#FFF8EC] p-6">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-full w-full object-contain"
-        />
+        <Link to={`/products/${product.id}`} className="h-full w-full">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-contain"
+          />
+        </Link>
 
         <button
           onClick={() => setIsFavorite(!isFavorite)}
@@ -30,44 +33,45 @@ function ProductCard({ product }) {
           <span className="text-sm">{product.rating}</span>
         </div>
 
-        <h3 className="mt-3 text-lg font-bold text-[#1F1F1F]">
+        <Link
+          to={`/products/${product.id}`}
+          className="mt-3 block text-lg font-bold text-[#1F1F1F] transition hover:text-[#F59E0B]"
+        >
           {product.name}
-        </h3>
+        </Link>
 
         <p className="mt-2 text-sm leading-6 text-gray-500">
-         {product.description}
+          {product.description}
         </p>
 
-    <div className="mt-5">
-  <div className="flex items-center gap-2">
-    <span className="rounded-lg bg-red-100 px-2 py-1 text-xs font-bold text-red-500">
-      {product.discount}
-    </span>
+        <div className="mt-5">
+          <div className="flex items-center gap-2">
+            <span className="rounded-lg bg-red-100 px-2 py-1 text-xs font-bold text-red-500">
+              {product.discount}
+            </span>
 
-    <span className="text-sm text-gray-400 line-through">
-      {product.oldPrice}
-    </span>
-  </div>
+            <span className="text-sm text-gray-400 line-through">
+              {product.oldPrice}
+            </span>
+          </div>
 
-  <div className="mt-2">
-    <span className="text-lg font-bold text-[#1F1F1F]">
-      {product.price}
-    </span>
+          <div className="mt-2">
+            <span className="text-lg font-bold text-[#1F1F1F]">
+              {product.price}
+            </span>
 
-    <span className="mr-1 text-sm text-gray-500">
-      تومان
-    </span>
-  </div>
-</div>
+            <span className="mr-1 text-sm text-gray-500">تومان</span>
+          </div>
+        </div>
 
-      <button
-  onClick={() => setIsAdded(!isAdded)}
-  className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
->
-  <ShoppingCart className="h-5 w-5 -scale-x-100" />
+        <button
+          onClick={() => setIsAdded(!isAdded)}
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
+        >
+          <ShoppingCart className="h-5 w-5 -scale-x-100" />
 
-  {isAdded ? "به سبد اضافه شد ✓" : "افزودن به سبد خرید"}
-</button>
+          {isAdded ? "به سبد اضافه شد ✓" : "افزودن به سبد خرید"}
+        </button>
       </div>
     </div>
   );

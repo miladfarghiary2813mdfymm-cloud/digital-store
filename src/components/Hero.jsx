@@ -1,5 +1,5 @@
 import { ShieldCheck, Truck, Headphones, BadgeDollarSign } from "lucide-react";
-
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <section className="mx-6 mt-8 rounded-3xl bg-[#FFF8EC] p-8">
@@ -18,9 +18,12 @@ function Hero() {
           </p>
 
           <div className="mt-6 flex gap-3">
-            <button className="rounded-xl bg-[#FFC107] px-6 py-3 text-base font-medium transition hover:bg-[#F59E0B] md:px-7 md:py-3.5 md:text-lg">
+            <Link
+              to="/products"
+              className="rounded-xl bg-[#FFC107] px-6 py-3 text-base font-medium transition hover:bg-[#F59E0B] md:px-7 md:py-3.5 md:text-lg"
+            >
               مشاهده محصولات
-            </button>
+            </Link>
 
             <button className="rounded-xl border border-[#FFC107] px-4 py-2 text-sm font-medium transition hover:bg-[#FDF2C2] md:px-7 md:py-3.5 md:text-lg">
               دسته‌بندی‌ها

@@ -7,7 +7,7 @@ function CategorySection() {
     },
     {
       name: "موبایل",
-      image: "/6.png",
+      image: "/66.png",
     },
     {
       name: "هدفون",
