@@ -61,9 +61,9 @@ export const mobileProducts = [
   },
   {
     id: 7,
-    name: "Samsung Galaxy A55",
+    name: "Samsung Galaxy A10S",
     image: "/12.png",
-    price: "۲۴,۹۰۰,۰۰۰",
+    price: "۲۲,۹۰۰,۰۰۰",
     oldPrice: "۲۷,۰۰۰,۰۰۰",
     discount: "۸٪",
     rating: "۴.۵",
@@ -294,9 +294,28 @@ export const smartwatchProducts = [
 ];
 
 export const products = [
-  ...mobileProducts,
-  ...laptopProducts,
-  ...headphoneProducts,
-  ...smartwatchProducts,
-  ...accessoryProducts,
+  ...mobileProducts.map((product) => ({
+    ...product,
+    category: "mobile",
+  })),
+
+  ...laptopProducts.map((product) => ({
+    ...product,
+    category: "laptop",
+  })),
+
+  ...headphoneProducts.map((product) => ({
+    ...product,
+    category: "headphone",
+  })),
+
+  ...smartwatchProducts.map((product) => ({
+    ...product,
+    category: "smartwatch",
+  })),
+
+  ...accessoryProducts.map((product) => ({
+    ...product,
+    category: "accessory",
+  })),
 ];

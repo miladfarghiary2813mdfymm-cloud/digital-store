@@ -1,16 +1,22 @@
 import { ShoppingCart, User, Menu, Search, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 function Navbar() {
-const { cartItems } = useCart();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const { cartItems } = useCart();
 
-const cartCount = cartItems.reduce(
-  (total, item) => total + item.quantity,
-  0
-);
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  function handleSearch() {
+    if (!searchQuery.trim()) return;
+
+    navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+    setIsMenuOpen(false);
+  }
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -24,6 +30,10 @@ const cartCount = cartItems.reduce(
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  function handleContactClick() {
+    navigate("/#contact");
+    setIsMenuOpen(false);
+  }
   return (
     <nav
       ref={menuRef}
@@ -47,23 +57,29 @@ const cartCount = cartItems.reduce(
               محصولات
             </Link>
           </li>
+<li>
+  <Link to="/products" className="transition hover:text-[#F59E0B]">
+    دسته‌بندی‌ها
+  </Link>
+</li>
+
+      <li>
+  <Link
+    to="/about"
+    onClick={() => setIsMenuOpen(false)}
+    className="block py-2 transition hover:text-[#F59E0B]"
+  >
+    درباره ما
+  </Link>
+</li>
 
           <li>
-            <a href="#" className="transition hover:text-[#F59E0B]">
-              دسته‌بندی‌ها
-            </a>
-          </li>
-
-          <li>
-            <a href="#" className="transition hover:text-[#F59E0B]">
-              درباره ما
-            </a>
-          </li>
-
-          <li>
-            <a href="#" className="transition hover:text-[#F59E0B]">
+            <button
+              onClick={handleContactClick}
+              className="transition hover:text-[#F59E0B]"
+            >
               تماس با ما
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -71,12 +87,25 @@ const cartCount = cartItems.reduce(
           <label className="relative">
             <input
               type="text"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleSearch();
+                }
+              }}
               placeholder="جستجوی محصول..."
               className="hidden w-52 rounded-xl border border-[#EAD8BA] bg-[#FFFDF8] px-4 py-2.5 text-right outline-none transition focus:border-[#FFC107] md:block"
             />
-            <Search className="absolute left-3 top-3 hidden md:flex" />
+            <Search
+              onClick={handleSearch}
+              className="absolute left-3 top-3 hidden cursor-pointer md:flex"
+            />
           </label>
-          <button className="hidden rounded-xl bg-[#FFC107] px-5 py-2.5 text-[#1F1F1F] transition hover:bg-[#F59E0B] md:flex cursor-pointer">
+          <button
+            onClick={() => navigate("/login")}
+            className="hidden rounded-xl bg-[#FFC107] px-5 py-2.5 text-[#1F1F1F] transition hover:bg-[#F59E0B] md:flex cursor-pointer"
+          >
             <User />
           </button>
 
@@ -93,9 +122,9 @@ const cartCount = cartItems.reduce(
           >
             <ShoppingCart className="-scale-x-100 cursor-pointer" />
 
-         <span className="absolute left-0 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#F59E0B] text-xs font-bold text-white">
-  {cartCount}
-</span>
+            <span className="absolute left-0 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#F59E0B] text-xs font-bold text-white">
+              {cartCount}
+            </span>
           </Link>
         </div>
       </div>
@@ -106,13 +135,31 @@ const cartCount = cartItems.reduce(
             <label className="relative">
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    handleSearch();
+                  }
+                }}
                 placeholder="جستجوی محصول.."
                 className="mb-4 w-full rounded-lg border border-[#EAD8BA] bg-white px-3 py-2 text-right outline-none focus:border-[#FFC107]"
               />
-              <Search className="absolute left-3 top-0.5" />
+              <Search
+                onClick={handleSearch}
+                className="absolute left-3 top-0.5 cursor-pointer"
+              />
             </label>
             <ul className="text-right">
-              <li className="py-2 hover:text-[#F59E0B] cursor-pointer">ورود</li>
+              <li>
+                <Link
+                  to="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block py-2 transition hover:text-[#F59E0B]"
+                >
+                  ورود
+                </Link>
+              </li>
               <li>
                 <Link to="/" className="transition hover:text-[#F59E0B]">
                   خانه
@@ -126,14 +173,27 @@ const cartCount = cartItems.reduce(
                   محصولات
                 </Link>
               </li>
-              <li className="py-2 hover:text-[#F59E0B] cursor-pointer">
-                دسته‌بندی‌ها
-              </li>
-              <li className="py-2 hover:text-[#F59E0B] cursor-pointer">
-                درباره ما
-              </li>
-              <li className="py-2 hover:text-[#F59E0B] cursor-pointer">
-                تماس با ما
+             <li>
+  <Link
+    to="/products"
+    onClick={() => setIsMenuOpen(false)}
+    className="block py-2 transition hover:text-[#F59E0B]"
+  >
+    دسته‌بندی‌ها
+  </Link>
+</li>
+              <li>
+  <Link to="/about" className="transition hover:text-[#F59E0B]">
+    درباره ما
+  </Link>
+</li>
+              <li>
+                <button
+                  onClick={handleContactClick}
+                  className="block w-full py-2 text-right transition hover:text-[#F59E0B]"
+                >
+                  تماس با ما
+                </button>
               </li>
             </ul>
           </div>

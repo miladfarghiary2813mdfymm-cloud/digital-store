@@ -1,73 +1,119 @@
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-
-import {
-  mobileProducts,
-  laptopProducts,
-  headphoneProducts,
-  smartwatchProducts,
-  accessoryProducts,
-} from "../data/products";
+import { products } from "../data/products";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 function Products() {
-  
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "all" || product.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
   return (
     <>
       <Navbar />
 
       <main dir="rtl" className="mx-6 mt-10">
-        <h1 className="text-3xl font-bold text-[#1F1F1F]">همه محصولات</h1>
+        <div className="mb-8 flex flex-wrap gap-3">
+          <button
+            onClick={() => setSelectedCategory("all")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "all"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
+            همه
+          </button>
 
-        <p className="mt-2 text-gray-500">محصولات دیجیتال فروشگاه</p>
+          <button
+            onClick={() => setSelectedCategory("mobile")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "mobile"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
+            موبایل
+          </button>
 
-        <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-bold text-[#1F1F1F]">موبایل</h2>
+          <button
+            onClick={() => setSelectedCategory("laptop")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "laptop"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
+            لپ‌تاپ
+          </button>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {mobileProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </section>
-        <section className="mt-12">
-          <h2 className="mb-6 text-2xl font-bold text-[#1F1F1F]">لپ‌تاپ</h2>
+          <button
+            onClick={() => setSelectedCategory("headphone")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "headphone"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
+            هدفون
+          </button>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {laptopProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </section>
-        <section className="mt-12">
-          <h2 className="mb-6 text-2xl font-bold text-[#1F1F1F]">هدفون</h2>
-
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {headphoneProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </section>
-        <section className="mt-12">
-          <h2 className="mb-6 text-2xl font-bold text-[#1F1F1F]">
+          <button
+            onClick={() => setSelectedCategory("smartwatch")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "smartwatch"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
             ساعت هوشمند
-          </h2>
+          </button>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {smartwatchProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </section>
-        <section className="mt-12">
-          <h2 className="mb-6 text-2xl font-bold text-[#1F1F1F]">
+          <button
+            onClick={() => setSelectedCategory("accessory")}
+            className={`rounded-xl px-4 py-2 transition ${
+              selectedCategory === "accessory"
+                ? "bg-[#FFC107] font-bold"
+                : "border border-[#F3E3C8] hover:bg-[#FDF2C2]"
+            }`}
+          >
             لوازم جانبی
-          </h2>
+          </button>
+        </div>
+        <h1 className="text-3xl font-bold text-[#1F1F1F]">
+          {searchQuery ? `نتایج جستجو برای «${searchQuery}»` : "همه محصولات"}
+        </h1>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {accessoryProducts.map((product) => (
+        <p className="mt-2 text-gray-500">
+          {searchQuery
+            ? `${filteredProducts.length} محصول پیدا شد`
+            : "محصولات دیجیتال فروشگاه"}
+        </p>
+
+        {filteredProducts.length === 0 ? (
+          <div className="mt-16 text-center">
+            <p className="text-lg text-gray-500">
+              محصولی با این عبارت پیدا نشد.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-        </section>
+        )}
       </main>
     </>
   );

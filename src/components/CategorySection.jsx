@@ -30,7 +30,7 @@ function CategorySection() {
 
       <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-5">
         {categories.map((category, index) => {
-          const Icon = category.icon;
+        
 
           return (
             <div

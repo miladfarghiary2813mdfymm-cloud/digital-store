@@ -30,7 +30,7 @@ function ProductDetail() {
             <img
               src={product.image}
               alt={product.name}
-    className="h-56 w-56 object-contain sm:h-72 sm:w-72"
+              className="h-56 w-56 object-contain sm:h-72 sm:w-72"
             />
           </div>
 
@@ -54,7 +54,7 @@ function ProductDetail() {
               </span>
               <span className="mr-2 text-gray-500">تومان</span>
             </div>
-            <div className="mt-8 flex w-fit items-center rounded-xl border border-[#f3c8c8]">
+            <div className="mt-8 flex w-fit items-center rounded-xl border border-[#F3E3C8]">
               <button
                 onClick={() => setQuantity(quantity + 1)}
                 className="px-4 py-2 text-xl hover:bg-[#FDF2C2] rounded-xl"
@@ -72,12 +72,12 @@ function ProductDetail() {
               </button>
             </div>
             <button
-  onClick={() => addToCart(product, quantity)}
-  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-4 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
->
-  <ShoppingCart className="h-5 w-5" />
-  افزودن به سبد خرید
-</button>
+              onClick={() => addToCart(product, quantity)}
+              className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-4 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              افزودن به سبد خرید
+            </button>
           </div>
         </div>
       </main>

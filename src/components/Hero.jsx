@@ -25,9 +25,7 @@ function Hero() {
               مشاهده محصولات
             </Link>
 
-            <button className="rounded-xl border border-[#FFC107] px-4 py-2 text-sm font-medium transition hover:bg-[#FDF2C2] md:px-7 md:py-3.5 md:text-lg">
-              دسته‌بندی‌ها
-            </button>
+      
           </div>
         </div>
 

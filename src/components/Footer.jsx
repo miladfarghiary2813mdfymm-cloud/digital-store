@@ -1,6 +1,7 @@
 function Footer() {
   return (
     <footer
+    id="contact"
       dir="rtl"
       className="mt-12 border-t border-[#F3E3C8] bg-[#FFF8EC] px-6 py-10"
     >

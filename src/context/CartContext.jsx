@@ -3,20 +3,25 @@ import { createContext, useContext, useEffect, useState } from "react";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-const [cartItems, setCartItems] = useState(() => {
-    
-  const savedCart = localStorage.getItem("digital-shop-cart");
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("digital-shop-cart");
 
-  return savedCart ? JSON.parse(savedCart) : [];
-});
-useEffect(() => {
-  localStorage.setItem("digital-shop-cart", JSON.stringify(cartItems));
-}, [cartItems]);
+    if (!savedCart) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(savedCart);
+    } catch {
+      return [];
+    }
+  });
+  useEffect(() => {
+    localStorage.setItem("digital-shop-cart", JSON.stringify(cartItems));
+  }, [cartItems]);
   function addToCart(product, quantity) {
     setCartItems((currentItems) => {
-      const existingItem = currentItems.find(
-        (item) => item.id === product.id
-      );
+      const existingItem = currentItems.find((item) => item.id === product.id);
 
       if (existingItem) {
         return currentItems.map((item) =>
@@ -25,7 +30,7 @@ useEffect(() => {
                 ...item,
                 quantity: item.quantity + quantity,
               }
-            : item
+            : item,
         );
       }
 
@@ -38,23 +43,25 @@ useEffect(() => {
       ];
     });
   }
-function removeFromCart(productId) {
-  setCartItems((currentItems) =>
-    currentItems.filter((item) => item.id !== productId)
-  );
-}
-function updateQuantity(productId, newQuantity) {
-  setCartItems((currentItems) =>
-    currentItems.map((item) =>
-      item.id === productId
-        ? { ...item, quantity: Math.max(1, newQuantity) }
-        : item
-    )
-  );
-}
+  function removeFromCart(productId) {
+    setCartItems((currentItems) =>
+      currentItems.filter((item) => item.id !== productId),
+    );
+  }
+  function updateQuantity(productId, newQuantity) {
+    setCartItems((currentItems) =>
+      currentItems.map((item) =>
+        item.id === productId
+          ? { ...item, quantity: Math.max(1, newQuantity) }
+          : item,
+      ),
+    );
+  }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart,removeFromCart,updateQuantity }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, updateQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );

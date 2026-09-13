@@ -15,7 +15,7 @@ function Cart() {
         item.quantity,
     0,
   );
-  console.log(cartItems);
+
   return (
     <>
       <Navbar />
