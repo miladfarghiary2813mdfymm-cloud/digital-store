@@ -11,7 +11,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import { useAuth } from "../context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 function Face({ mood, mousePosition = { x: 0, y: 0 } }) {
   const isSurprised = mood === "surprised";
   const isPassword = mood === "password";
@@ -197,7 +198,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [mood, setMood] = useState("normal");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const { login } = useAuth();
+  const navigate = useNavigate();
   function handleMouseMove(event) {
     const rect = event.currentTarget.getBoundingClientRect();
 
@@ -217,14 +219,24 @@ export default function Login() {
       setMood(showPassword ? "password" : "normal");
     }
   }
-
   function handleLogin(event) {
     event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    const success = login(email, password);
+
+    if (!success) {
+      alert("حساب کاربری با این مشخصات پیدا نشد");
+      return;
+    }
+
     setMood("happy");
 
     setTimeout(() => {
-      setMood("normal");
-    }, 2200);
+      navigate("/");
+    }, 1000);
   }
 
   return (
@@ -377,8 +389,11 @@ export default function Login() {
                 اطلاعاتت رو وارد کن تا به حساب کاربری خودت دسترسی پیدا کنی.
               </p>
             </div>
-
             <form onSubmit={handleLogin}>
+              <div className="mb-5 rounded-2xl border border-yellow-200 bg-yellow-50 p-4 text-sm leading-6 text-yellow-800">
+                🔒 توجه: این صفحه نسخه دمو است و سیستم ورود واقعی به سرور متصل
+                نیست. برای تست از اطلاعات ساختگی استفاده کنید.
+              </div>
               <div className="mb-5">
                 <label htmlFor="email" className="mb-2 block text-sm font-bold">
                   ایمیل

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-
+import { FavoriteProvider } from "./context/FavoriteContext";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -9,7 +9,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { CartProvider } from "./context/CartContext";
 import About from "./pages/About";
-
+import Profile from "./pages/Profile.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Favorites from "./pages/Favorites";
 function ScrollToContact() {
   const location = useLocation();
 
@@ -30,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <CartProvider>
+          <FavoriteProvider>
         <ScrollToContact />
 
         <Routes>
@@ -40,7 +43,17 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
+        </FavoriteProvider>
       </CartProvider>
     </BrowserRouter>
   );

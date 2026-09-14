@@ -2,11 +2,12 @@ import { ShoppingCart, User, Menu, Search, ShoppingBag } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 function Navbar() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const { cartItems } = useCart();
-
+const { user, logout } = useAuth();
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -102,12 +103,21 @@ function Navbar() {
               className="absolute left-3 top-3 hidden cursor-pointer md:flex"
             />
           </label>
-          <button
-            onClick={() => navigate("/login")}
-            className="hidden rounded-xl bg-[#FFC107] px-5 py-2.5 text-[#1F1F1F] transition hover:bg-[#F59E0B] md:flex cursor-pointer"
-          >
-            <User />
-          </button>
+{user ? (
+  <button
+    onClick={() => navigate("/profile")}
+    className="hidden rounded-xl font-bold bg-[#FFC107] px-5 py-2.5 text-[#1F1F1F] md:flex cursor-pointer"
+  >
+    {user.name}
+  </button>
+) : (
+  <button
+    onClick={() => navigate("/login")}
+    className="hidden rounded-xl  bg-[#FFC107] px-5 py-2.5 text-[#1F1F1F] md:flex cursor-pointer"
+  >
+    <User />
+  </button>
+)}
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -151,15 +161,25 @@ function Navbar() {
               />
             </label>
             <ul className="text-right">
-              <li>
-                <Link
-                  to="/login"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-2 transition hover:text-[#F59E0B]"
-                >
-                  ورود
-                </Link>
-              </li>
+           <li>
+  {user ? (
+    <Link
+      to="/profile"
+      onClick={() => setIsMenuOpen(false)}
+      className="block py-2 font-bold transition hover:text-[#F59E0B]"
+    >
+      پروفایل {user.name}
+    </Link>
+  ) : (
+    <Link
+      to="/login"
+      onClick={() => setIsMenuOpen(false)}
+      className="block py-2 transition hover:text-[#F59E0B]"
+    >
+      ورود
+    </Link>
+  )}
+</li>
               <li>
                 <Link to="/" className="transition hover:text-[#F59E0B]">
                   خانه

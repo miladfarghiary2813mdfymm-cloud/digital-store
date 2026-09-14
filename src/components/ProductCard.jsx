@@ -2,10 +2,11 @@ import { ShoppingCart, Heart, Star } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useFavorite } from "../context/FavoriteContext";
 function ProductCard({ product }) {
   const { addToCart } = useCart();
-  const [isFavorite, setIsFavorite] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  const { toggleFavorite, isFavorite } = useFavorite();
   return (
     <div className="overflow-hidden rounded-2xl border border-[#F3E3C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
       <div className="relative flex h-52 items-center justify-center bg-[#FFF8EC] p-6">
@@ -18,12 +19,14 @@ function ProductCard({ product }) {
         </Link>
 
         <button
-          onClick={() => setIsFavorite(!isFavorite)}
+          onClick={() => toggleFavorite(product)}
           className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm transition hover:bg-[#FDF2C2]"
         >
           <Heart
             className={`h-5 w-5 transition ${
-              isFavorite ? "fill-red-500 text-red-500" : "text-[#1F1F1F]"
+              isFavorite(product.id)
+                ? "fill-red-500 text-red-500"
+                : "text-[#1F1F1F]"
             }`}
           />
         </button>
@@ -67,10 +70,10 @@ function ProductCard({ product }) {
         </div>
 
         <button
-  onClick={() => {
-    addToCart(product, 1);
-    setIsAdded(true);
-  }}
+          onClick={() => {
+            addToCart(product, 1);
+            setIsAdded(true);
+          }}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#FFC107] py-3 font-medium text-[#1F1F1F] transition hover:bg-[#F59E0B]"
         >
           <ShoppingCart className="h-5 w-5 -scale-x-100" />
