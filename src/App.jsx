@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { FavoriteProvider } from "./context/FavoriteContext";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -32,9 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-          <FavoriteProvider>
         <ScrollToContact />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -53,7 +50,6 @@ function App() {
             }
           />
         </Routes>
-        </FavoriteProvider>
       </CartProvider>
     </BrowserRouter>
   );

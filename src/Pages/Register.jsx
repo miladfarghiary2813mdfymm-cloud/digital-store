@@ -16,7 +16,6 @@ export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const { login } = useAuth();
   const { register } = useAuth();
   const navigate = useNavigate();
   function handleRegister(event) {
