@@ -1,32 +1,36 @@
 # 🛒 Digital Store
 
-A modern online store built with React and Tailwind CSS.
+A modern responsive e-commerce website built with React and Tailwind CSS.
+
+![Digital Store Screenshot](./screenshot.png)
 
 ## 📌 About Project
 
-Digital Store is a responsive e-commerce website where users can:
+Digital Store is a frontend e-commerce project that simulates an online shopping experience.
+
+Users can:
 
 - Browse products
 - View product details
-- Add products to cart
+- Add products to shopping cart
 - Save favorite products
 - Create an account
-- Manage user profile
+- Login and manage profile information
 
-This project was created to practice modern frontend development with React.
+This project was developed to practice modern frontend development concepts using React.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-✅ Responsive design  
-✅ Product listing  
-✅ Product details page  
-✅ Shopping cart system  
-✅ Favorite products system  
-✅ Login & Register pages  
-✅ User profile page  
-✅ LocalStorage data persistence  
+- ✅ Responsive design for different screen sizes
+- ✅ Product listing page
+- ✅ Product details page
+- ✅ Shopping cart management
+- ✅ Favorite products system
+- ✅ Login and Register pages
+- ✅ User profile page
+- ✅ Data persistence using LocalStorage
 
 ---
 
@@ -38,18 +42,18 @@ This project was created to practice modern frontend development with React.
 - JavaScript (ES6+)
 - Lucide React Icons
 - LocalStorage
+- Vite
 
 ---
 
-## 📷 Screenshot
+## 📂 Project Structure
 
-![Digital Store Screenshot](./screenshot.png)
 
 ---
 
 ## ⚙️ Installation
 
-Clone the project:
+Clone the repository:
 
 ```bash
 git clone https://github.com/miladfarghiary2813mdfymm-cloud/digital-store.git
