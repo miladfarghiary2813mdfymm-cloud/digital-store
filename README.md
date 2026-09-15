@@ -1,16 +1,50 @@
-# React + Vite
+# 🛒 Digital Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern responsive e-commerce website built with React and Tailwind CSS.
 
-Currently, two official plugins are available:
+## 📌 About Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Digital Store is a responsive online store where users can:
 
-## React Compiler
+- Browse products
+- View product details
+- Add products to cart
+- Save favorite products
+- Create an account
+- Manage their profile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was created to practice modern frontend development with React.
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Responsive design
+- Product listing
+- Product details page
+- Shopping cart system
+- Favorite products system
+- Login & Register pages
+- User profile page
+- Product search
+- Category filtering
+- LocalStorage data persistence
+
+## 🛠 Technologies
+
+- React
+- React Router
+- Tailwind CSS
+- JavaScript (ES6+)
+- Lucide React Icons
+- LocalStorage
+
+## 📷 Screenshot
+
+Coming soon.
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/miladfarghiary2813mdfymm-cloud/digital-store.git
+cd digital-store
