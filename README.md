@@ -66,20 +66,6 @@ digital-store
 └── README.md           # Project documentation
 
 
-digital-store
-│
-├── src
-│ ├── assets # Images and static files
-│ ├── components # Reusable UI components
-│ ├── context # Global state management (Cart, Auth, Favorites)
-│ ├── pages # Application pages
-│ ├── App.jsx # Main application component
-│ └── main.jsx # Application entry point
-│
-├── public # Public static files
-├── package.json # Project dependencies and scripts
-├── vite.config.js # Vite configuration
-└── README.md # Project documentation
 
 
 ---
