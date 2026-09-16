@@ -3,23 +3,23 @@ function CategorySection() {
   const categories = [
     {
       name: "لپ‌تاپ",
-      image: "/5.png",
+      image: "/5.webp",
     },
     {
       name: "موبایل",
-      image: "/66.png",
+      image: "/66.webp",
     },
     {
       name: "هدفون",
-      image: "/7.png",
+      image: "/7.webp",
     },
     {
       name: "ساعت هوشمند",
-      image: "/8.png",
+      image: "/8.webp",
     },
     {
       name: "لوازم جانبی",
-      image: "/9.png",
+      image: "/9.webp",
     },
   ];
   return (

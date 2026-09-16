@@ -31,7 +31,7 @@ function Hero() {
 
         <div className="flex w-full justify-center md:w-1/2">
           <img
-            src="/2.png"
+            src="/2.webp"
             alt="محصولات دیجیتال"
             className="w-full max-w-md object-contain"
           />

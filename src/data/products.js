@@ -2,7 +2,7 @@ export const mobileProducts = [
   {
     id: 1,
     name: "iPhone 14 Pro",
-    image: "/12.png",
+    image: "/12.webp",
     price: "۵۲,۹۰۰,۰۰۰",
     oldPrice: "۵۷,۹۰۰,۰۰۰",
     discount: "۹٪",
@@ -12,7 +12,7 @@ export const mobileProducts = [
   {
     id: 2,
     name: "Samsung Galaxy S24",
-    image: "/6.png",
+    image: "/6.webp",
     price: "۴۹,۹۰۰,۰۰۰",
     oldPrice: "۵۴,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -22,7 +22,7 @@ export const mobileProducts = [
   {
     id: 3,
     name: "Xiaomi 14",
-    image: "/12.png",
+    image: "/12.webp",
     price: "۳۶,۹۰۰,۰۰۰",
     oldPrice: "۴۰,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -32,7 +32,7 @@ export const mobileProducts = [
   {
     id: 4,
     name: "iPhone 13",
-    image: "/13.png",
+    image: "/13.webp",
     price: "۳۹,۹۰۰,۰۰۰",
     oldPrice: "۴۳,۰۰۰,۰۰۰",
     discount: "۷٪",
@@ -42,7 +42,7 @@ export const mobileProducts = [
   {
     id: 5,
     name: "Samsung Galaxy A55",
-    image: "/13.png",
+    image: "/13.webp",
     price: "۲۴,۹۰۰,۰۰۰",
     oldPrice: "۲۷,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -52,7 +52,7 @@ export const mobileProducts = [
   {
     id: 6,
     name: "Google Pixel 8",
-    image: "/13.png",
+    image: "/13.webp",
     price: "۳۴,۹۰۰,۰۰۰",
     oldPrice: "۳۸,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -62,7 +62,7 @@ export const mobileProducts = [
   {
     id: 7,
     name: "Samsung Galaxy A10S",
-    image: "/12.png",
+    image: "/12.webp",
     price: "۲۲,۹۰۰,۰۰۰",
     oldPrice: "۲۷,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -72,7 +72,7 @@ export const mobileProducts = [
   {
     id: 8,
     name: "Google Pixel 8",
-    image: "/12.png",
+    image: "/12.webp",
     price: "۳۴,۹۰۰,۰۰۰",
     oldPrice: "۳۸,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -85,7 +85,7 @@ export const mobileProducts = [
   {
     id: 9,
     name: "MacBook Air M2",
-    image: "/L1.png",
+    image: "/L1.webp",
     price: "۵۵,۰۰۰,۰۰۰",
     oldPrice: "۶۰,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -95,7 +95,7 @@ export const mobileProducts = [
   {
     id: 10,
     name: "MacBook Pro M3",
-    image: "/L2.png",
+    image: "/L2.webp",
     price: "۸۵,۰۰۰,۰۰۰",
     oldPrice: "۹۲,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -105,7 +105,7 @@ export const mobileProducts = [
   {
     id: 11,
     name: "ASUS VivoBook 15",
-    image: "/L3.png",
+    image: "/L3.webp",
     price: "۴۲,۰۰۰,۰۰۰",
     oldPrice: "۴۶,۰۰۰,۰۰۰",
     discount: "۹٪",
@@ -115,7 +115,7 @@ export const mobileProducts = [
   {
     id: 12,
     name: "ASUS TUF Gaming",
-    image: "/L4.png",
+    image: "/L4.webp",
     price: "۶۵,۰۰۰,۰۰۰",
     oldPrice: "۷۰,۰۰۰,۰۰۰",
     discount: "۷٪",
@@ -125,7 +125,7 @@ export const mobileProducts = [
   {
     id: 13,
     name: "Lenovo IdeaPad 5",
-    image: "/L5.png",
+    image: "/L5.webp",
     price: "۴۸,۰۰۰,۰۰۰",
     oldPrice: "۵۲,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -135,7 +135,7 @@ export const mobileProducts = [
   {
     id: 14,
     name: "Lenovo Legion 5",
-    image: "/L6.png",
+    image: "/L6.webp",
     price: "۷۲,۰۰۰,۰۰۰",
     oldPrice: "۷۸,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -145,7 +145,7 @@ export const mobileProducts = [
   {
     id: 15,
     name: "HP Pavilion 15",
-    image: "/L7.png",
+    image: "/L7.webp",
     price: "۴۵,۰۰۰,۰۰۰",
     oldPrice: "۴۹,۰۰۰,۰۰۰",
     discount: "۸٪",
@@ -155,7 +155,7 @@ export const mobileProducts = [
   {
     id: 16,
     name: "Acer Aspire 5",
-    image: "/L8.png",
+    image: "/L8.webp",
     price: "۳۹,۰۰۰,۰۰۰",
     oldPrice: "۴۳,۰۰۰,۰۰۰",
     discount: "۹٪",
@@ -168,7 +168,7 @@ export const mobileProducts = [
   {
     id: 17,
     name: "AirPods Pro 2",
-    image: "/H1.png",
+    image: "/H1.webp",
     price: "۱۲,۵۰۰,۰۰۰",
     oldPrice: "۱۴,۰۰۰,۰۰۰",
     discount: "۱۱٪",
@@ -178,7 +178,7 @@ export const mobileProducts = [
   {
     id: 18,
     name: "Sony WH-1000XM5",
-    image: "/H2.png",
+    image: "/H2.webp",
     price: "۱۸,۹۰۰,۰۰۰",
     oldPrice: "۲۱,۰۰۰,۰۰۰",
     discount: "۱۰٪",
@@ -188,7 +188,7 @@ export const mobileProducts = [
   {
     id: 19,
     name: "JBL Tune 770NC",
-    image: "/H3.png",
+    image: "/H3.webp",
     price: "۶,۹۰۰,۰۰۰",
     oldPrice: "۸,۰۰۰,۰۰۰",
     discount: "۱۴٪",
@@ -198,7 +198,7 @@ export const mobileProducts = [
   {
     id: 20,
     name: "Samsung Galaxy Buds 3",
-    image: "/H4.png",
+    image: "/H4.webp",
     price: "۷,۹۰۰,۰۰۰",
     oldPrice: "۹,۰۰۰,۰۰۰",
     discount: "۱۲٪",
@@ -211,7 +211,7 @@ export const smartwatchProducts = [
   {
     id: 21,
     name: "Apple Watch Series 9",
-    image: "/W1.png",
+    image: "/W1.webp",
     price: "۲۲,۵۰۰,۰۰۰",
     oldPrice: "۲۵,۰۰۰,۰۰۰",
     discount: "۱۰٪",
@@ -221,7 +221,7 @@ export const smartwatchProducts = [
   {
     id: 22,
     name: "Samsung Galaxy Watch 6",
-    image: "/W2.png",
+    image: "/W2.webp",
     price: "۱۴,۹۰۰,۰۰۰",
     oldPrice: "۱۷,۰۰۰,۰۰۰",
     discount: "۱۲٪",
@@ -231,7 +231,7 @@ export const smartwatchProducts = [
   {
     id: 23,
     name: "Xiaomi Watch 2",
-    image: "/W3.png",
+    image: "/W3.webp",
     price: "۸,۹۰۰,۰۰۰",
     oldPrice: "۱۰,۰۰۰,۰۰۰",
     discount: "۱۱٪",
@@ -241,7 +241,7 @@ export const smartwatchProducts = [
   {
     id: 24,
     name: "Huawei Watch GT 4",
-    image: "/W4.png",
+    image: "/W4.webp",
     price: "۱۲,۹۰۰,۰۰۰",
     oldPrice: "۱۵,۰۰۰,۰۰۰",
     discount: "۱۴٪",
@@ -254,7 +254,7 @@ export const smartwatchProducts = [
   {
     id: 25,
     name: "شارژر سریع Anker",
-    image: "/A1.png",
+    image: "/A1.webp",
     price: "۲,۹۰۰,۰۰۰",
     oldPrice: "۳,۵۰۰,۰۰۰",
     discount: "۱۷٪",
@@ -264,7 +264,7 @@ export const smartwatchProducts = [
   {
     id: 26,
     name: "Power Bank 20000mAh",
-    image: "/A2.png",
+    image: "/A2.webp",
     price: "۳,۹۰۰,۰۰۰",
     oldPrice: "۴,۵۰۰,۰۰۰",
     discount: "۱۳٪",
@@ -274,7 +274,7 @@ export const smartwatchProducts = [
   {
     id: 27,
     name: "USB-C Hub 7-in-1",
-    image: "/A3.png",
+    image: "/A3.webp",
     price: "۲,۴۰۰,۰۰۰",
     oldPrice: "۲,۹۰۰,۰۰۰",
     discount: "۱۷٪",
@@ -284,7 +284,7 @@ export const smartwatchProducts = [
   {
     id: 28,
     name: "کیبورد بی‌سیم Logitech",
-    image: "/A4.png",
+    image: "/A4.webp",
     price: "۳,۲۰۰,۰۰۰",
     oldPrice: "۳,۸۰۰,۰۰۰",
     discount: "۱۶٪",
