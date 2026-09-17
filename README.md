@@ -47,7 +47,6 @@ This project was developed to practice modern frontend development concepts usin
 ---
 
 ## 📂 Project Structure
-
 ```text
 digital-store
 │
@@ -63,14 +62,11 @@ digital-store
 │
 ├── package.json        # Project dependencies and scripts
 ├── vite.config.js      # Vite configuration
+
 └── README.md           # Project documentation
 
-
-
-
 ---
----
-
+```
 ## ⚙️ Installation
 
 Clone the repository:
