@@ -69,28 +69,43 @@ digital-store
 
 
 ---
-⚙️ Installation
+---
+
+## ⚙️ Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/miladfarghiary2813mdfymm-cloud/digital-store.git
+```
 
 Navigate to the project directory:
 
+```bash
 cd digital-store
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
 
 Start the development server:
 
+```bash
 npm run dev
-🌐 Live Demo
+```
 
-View Live Demo
+---
 
-👨‍💻 Author
+## 🌐 Live Demo
+
+[View Live Demo](https://digital-store-amber-tau.vercel.app)
+
+---
+
+## 👨‍💻 Author
 
 Milad Farghyary
 
